@@ -40,6 +40,9 @@ app.use("/api", router);                     //localhost:5000/api/posts
 
 async function startApp() {
   try {
+    if (!process.env.MONGO_KEY) {
+      throw new Error("You forgot to set MONGO_DB_PASSWORD");
+    }
     await mongoose.connect(DB_URL);
     app.listen(PORT, () => console.log("SERVER STARTED ON PORT: " + PORT));
   } catch (e) {
