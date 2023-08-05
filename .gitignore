@@ -1,0 +1,7 @@
+# dependencies
+.env
+.idea/
+/node_modules
+
+# production
+/build
