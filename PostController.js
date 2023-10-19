@@ -1,13 +1,9 @@
-import Post from "./Post.js";
 import PostService from "./PostService.js";
 
 class PostController {
 
   async create(req, res) {
     try {
-      // const {restaurant, product, description, image, price, rating} = req.body;
-      // const post = await Post.create({restaurant, product, description, image, price, rating});
-      // console.log(req.files);
       const post = await PostService.create(req.body, req.files.image);
       res.status(200).json(post);
     } catch (e) {
