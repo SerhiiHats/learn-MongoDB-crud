@@ -15,10 +15,10 @@ app.use(express.json());                     //подключение испол
 app.use(express.static("static"));      //подключение отдачи статических файлов с директории "static"
 app.use(fileUpload({}));              //подключение express-fileupload для работы с файлами, их загрузкой
 app.use("/api", router);                     //localhost:5000/api/*router
-app.use("/", (req, res)=> res.send('Use API: ' + descriptionAPI));                     //localhost:5000
+app.use("/", (req, res) => res.send('Use API: ' + descriptionAPI));                     //localhost:5000
 
 
-async function startApp() {
+(async function startApp() {
   try {
     if (!process.env.MONGO_KEY) {
       throw new Error("You forgot to set MONGO_DB_PASSWORD");
@@ -28,6 +28,4 @@ async function startApp() {
   } catch (e) {
     console.log(e)
   }
-}
-
-startApp();
+})();
