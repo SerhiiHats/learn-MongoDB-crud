@@ -14,8 +14,8 @@ const app = express();
 app.use(express.json());                     //подключение использования JSON файлов
 app.use(express.static("static"));      //подключение отдачи статических файлов с директории "static"
 app.use(fileUpload({}));              //подключение express-fileupload для работы с файлами, их загрузкой
-app.use("/api", router);                     //localhost:5000/api/posts
-app.use("/", (req, res)=> res.send('Use API: ' + descriptionAPI));                     //localhost:5000/api/posts
+app.use("/api", router);                     //localhost:5000/api/*router
+app.use("/", (req, res)=> res.send('Use API: ' + descriptionAPI));                     //localhost:5000
 
 
 async function startApp() {
