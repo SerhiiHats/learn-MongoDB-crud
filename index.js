@@ -1,10 +1,17 @@
-import 'dotenv/config';
-import express from "express";
-import mongoose from "mongoose";
-import router from "./router.js";
-import fileUpload from "express-fileupload";
-import {descriptionAPI} from "./config.js";
-import cors from "cors";
+// import 'dotenv/config';
+// import express from "express";
+// import mongoose from "mongoose";
+// import router from "./router.js";
+// import fileUpload from "express-fileupload";
+// import {descriptionAPI} from "./config.js";
+// import cors from "cors";
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const {router} = require("./router");
+const fileUpload = require("express-fileupload");
+const {descriptionAPI} = require("./config.js");
+const cors = require("cors");
 
 const PORT = 5000;
 

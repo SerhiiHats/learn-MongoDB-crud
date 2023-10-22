@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-const Post = new mongoose.Schema({
+const post = new mongoose.Schema({
   restaurant: {type: String, required: true},
   product: {type: String, required: true},
   description: {type: String, required: true},
@@ -9,4 +9,11 @@ const Post = new mongoose.Schema({
   rating: {type: Number}
 });
 
-export default mongoose.model("Post", Post);
+
+const Post = mongoose.model("Post", post);
+
+module.exports = {
+  Post
+}
+
+// export default mongoose.model("Post", Post);

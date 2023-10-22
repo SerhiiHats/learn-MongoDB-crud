@@ -1,10 +1,10 @@
-import * as uuid from "uuid";
-import * as path from "path";
+const { v4: uuidv4 } = require('uuid');
+const path = require('node:path');
 
 class FileService {
   saveFile(file) {
     try {
-      const fileName = uuid.v4() + ".jpg";
+      const fileName = uuidv4() + ".jpg";
       const filePath = path.resolve("static", fileName);
       file.mv(filePath);
       return fileName;
@@ -14,4 +14,9 @@ class FileService {
   }
 }
 
-export default new FileService();
+// export default new FileService();
+
+const fileService = new FileService();
+module.exports = {
+  fileService
+}

@@ -1,5 +1,5 @@
-import Post from "./Post.js";
-import FileService from "./fileService.js";
+const {Post} = require("./Post.js");
+const FileService = require("./fileService.js");
 
 class PostService {
   async create(post, picture) {
@@ -38,4 +38,9 @@ class PostService {
   }
 }
 
-export default new PostService();
+
+module.exports = {
+  PostService
+}
+
+// export default new PostService();

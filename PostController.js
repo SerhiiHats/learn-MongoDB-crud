@@ -1,10 +1,11 @@
-import PostService from "./PostService.js";
+const {PostService} = require("./PostService.js");
 
+const postService = new PostService();
 class PostController {
 
   async create(req, res) {
     try {
-      const post = await PostService.create(req.body, req.files.image);
+      const post = await postService.create(req.body, req.files.image);
       res.status(200).json(post);
     } catch (e) {
       res.status(500).json(e.message);
@@ -13,7 +14,7 @@ class PostController {
 
   async getAll(req, res) {
     try {
-      const posts = await PostService.getAll()
+      const posts = await postService.getAll()
       res.status(200).json(posts);
     } catch (e) {
       res.status(500).json(e.message);
@@ -22,7 +23,7 @@ class PostController {
 
   async getOne(req, res) {
     try {
-      const post = await PostService.getOne(req.params.id);
+      const post = await postService.getOne(req.params.id);
       return res.json(post);
     } catch (e) {
       res.status(500).json(e.message);
@@ -31,7 +32,7 @@ class PostController {
 
   async update(req, res) {
     try {
-      const updatedPost = await PostService.update(req.body);
+      const updatedPost = await postService.update(req.body);
       return res.json(updatedPost);
     } catch (e) {
       res.status(500).json(e.message);
@@ -41,7 +42,7 @@ class PostController {
 
   async delete(req, res) {
     try {
-      const updatedPost = await PostService.delete(req.params.id);
+      const updatedPost = await postService.delete(req.params.id);
       return res.json(updatedPost);
     } catch (e) {
       res.status(500).json(e.message);
@@ -51,4 +52,8 @@ class PostController {
 }
 
 
-export default new PostController();
+// export default new PostController();
+
+module.exports = {
+  PostController
+}

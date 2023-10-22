@@ -1,12 +1,17 @@
-import {Router} from "express";
-import PostController from "./PostController.js";
+const Router = require("express");
+const {PostController} = require("./PostController.js");
 
+const postController = new PostController();
 const router = new Router();
 
-router.post("/posts", PostController.create);
-router.get("/posts", PostController.getAll);
-router.get("/posts/:id", PostController.getOne);
-router.put("/posts/", PostController.update);
-router.delete("/posts/:id", PostController.delete);// router.post("/posts", async (reg, res)   => {
+router.post("/posts", postController.create);
+router.get("/posts", postController.getAll);
+router.get("/posts/:id", postController.getOne);
+router.put("/posts/", postController.update);
+router.delete("/posts/:id", postController.delete);// router.post("/posts", async (reg, res)   => {
 
-export default router;
+// export default router;
+
+module.exports = {
+  router
+}
